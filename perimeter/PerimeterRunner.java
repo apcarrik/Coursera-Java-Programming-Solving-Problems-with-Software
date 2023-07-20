@@ -1,8 +1,32 @@
 import edu.duke.*;
 
 public class PerimeterRunner {
+    
     public double getAverageLength (Shape s) {
         return getPerimeter(s) / getNumPoints(s);
+    }
+    
+    public double getLargestSide (Shape s) {
+        double largest = 0.0;
+        Point prevPt = s.getLastPoint();
+        for (Point currPt : s.getPoints()) {
+            double currDist = prevPt.distance(currPt);
+            if (currDist > largest) {
+                largest = currDist;
+            }                
+        }
+        return largest;
+    }
+    
+    public double getLargestX (Shape s) {
+        double largestX = 0.0;
+        for (Point currPt : s.getPoints()) {
+            double currX = currPt.getX();
+            if (currX > largestX) {
+                largestX = currX;
+            }                
+        }
+        return largestX;
     }
     
     public int getNumPoints (Shape s) {
@@ -37,9 +61,14 @@ public class PerimeterRunner {
         double length = getPerimeter(s);
         int numPts = getNumPoints(s);
         double avgLength = getAverageLength(s);
+        double lgstSide = getLargestSide(s);
+        double lgstX = getLargestX(s);
         System.out.println("perimeter = " + length);
         System.out.println("num points = " + numPts);
         System.out.println("avg length = " + avgLength);
+        System.out.println("largest side = " + lgstSide);
+        System.out.println("largest X coord = " + lgstX);
+
     }
 
     public static void main (String[] args) {
