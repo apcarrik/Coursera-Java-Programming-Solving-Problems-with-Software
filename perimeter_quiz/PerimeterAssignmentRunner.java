@@ -154,11 +154,38 @@ public class PerimeterAssignmentRunner {
             System.out.println(f);
         }
     }
+    
+    public void quiz () {
+        FileResource fr1 = new FileResource();
+        Shape s1 = new Shape(fr1);
+        double length1 = getPerimeter(s1);
+        System.out.println("1. perimeter = " + length1);
+        
+        FileResource fr2 = new FileResource();
+        Shape s2 = new Shape(fr2);
+        double avgLength2 = getAverageLength(s2);
+        System.out.println("2.avg length = " + avgLength2);
+        
+        FileResource fr3 = new FileResource();
+        Shape s3 = new Shape(fr3);
+        double lgstSide3 = getLargestSide(s3);
+        System.out.println("3.largest side = " + lgstSide3);
+        
+        double LPMF = getLargestPerimeterMultipleFiles();
+        System.out.println("4. largest perimeter = " + LPMF);
+        
+        String FWLP = getFileWithLargestPerimeter();
+        System.out.println("5. file with largest perimeter = " + FWLP);
+    }
 
     public static void main (String[] args) {
         PerimeterAssignmentRunner pr = new PerimeterAssignmentRunner();
-        pr.testPerimeter();
-        pr.testPerimeterMultipleFiles();
-        pr.testFileWithLargestPerimeter();
+        //pr.testPerimeter();
+        //pr.testPerimeterMultipleFiles();
+        //pr.testFileWithLargestPerimeter();
+        
+        // Quiz answers
+        pr.quiz();
+        
     }
 }
