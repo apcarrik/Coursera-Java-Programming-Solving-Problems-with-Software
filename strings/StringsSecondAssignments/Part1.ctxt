@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Part1
+comment0.text=\n\ Write\ a\ description\ of\ class\ Part1\ here.\n\n\ @author\ apcarrik\n\ @version\ 0.0.1\n
+comment1.params=dna
+comment1.target=java.lang.String\ findGene(java.lang.String)
+comment1.text=\n\ Finds\ and\ returns\ the\ first\ single\ gene\ found\ in\ a\ snippet\ of\ DNA\ string\n\n\ @param\ \ dna\ \ a\ string\ represnting\ a\ snippet\ of\ DNA\n\ @return\ \ \ \ A\ string\ representing\ the\ first\ gene\ found.\ \n\ \ If\ none\ are\ found,\ returns\ empty\ string\n
+comment2.params=dna
+comment2.target=void\ printAllGenes(java.lang.String)
+comment2.text=\n\ Finds\ and\ prints\ all\ genes\ found\ in\ a\ snippet\ of\ DNA\ string\n\n\ @param\ \ dna\ \ a\ string\ represnting\ a\ snippet\ of\ DNA\n
+comment3.params=
+comment3.target=void\ testFindGene()
+comment4.params=
+comment4.target=void\ testPrintAllGenes()
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+numComments=6
