@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Part2
+comment0.text=\n\ Write\ a\ description\ of\ class\ Part2\ here.\n\n\ @author\ apcarrik\n\ @version\ 7/26/2023\n
+comment1.params=a\ b
+comment1.target=int\ howMany(java.lang.String,\ java.lang.String)
+comment1.text=\n\ Returns\ the\ number\ of\ (non-overlapping)\ times\ string\ a\ occurs\ in\ string\ b\n\n\ @param\ \ \ a\ \ \ string\ to\ match\ in\ string\ b\n\ @param\ \ \ b\ \ \ string\ which\ we\ search\ for\ a\ in\n\ @return\ \ \ \ the\ number\ of\ times\ a\ occurs\ in\ b\n
+comment2.params=
+comment2.target=void\ testHowMany()
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4
