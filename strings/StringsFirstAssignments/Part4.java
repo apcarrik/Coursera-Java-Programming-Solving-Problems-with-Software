@@ -2,8 +2,8 @@
 /**
  * Write a description of class Part4 here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author apcarrik
+ * @version 7/21/2023
  */
 
 import edu.duke.URLResource;
