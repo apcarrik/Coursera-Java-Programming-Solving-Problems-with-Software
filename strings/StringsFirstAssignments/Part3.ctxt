@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Part3
+comment0.text=\n\ Write\ a\ description\ of\ class\ Part3\ here.\n\n\ @author\ apcarrik\n\ @version\ 7/21/2023\n
+comment1.params=a\ b
+comment1.target=boolean\ twoOccurrences(java.lang.String,\ java.lang.String)
+comment1.text=\n\ Returns\ true\ if\ string\ a\ is\ found\ at\ least\ twice\ in\ string\ b,\ or\ false\ otherwise.\n\n\ @param\ \ \ a\ \ \ string\ to\ search\ for\ in\ b\n\ @param\ \ \ b\ \ \ string\ to\ search\n\ @return\ \ \ \ \ \ true\ if\ a\ is\ found\ at\ least\ twice\ in\ b;\ false\ otherwise.\n
+comment2.params=a\ b
+comment2.target=java.lang.String\ lastPart(java.lang.String,\ java.lang.String)
+comment3.params=
+comment3.target=void\ test_twoOccurrences()
+comment4.params=
+comment4.target=void\ test_lastPart()
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+numComments=6

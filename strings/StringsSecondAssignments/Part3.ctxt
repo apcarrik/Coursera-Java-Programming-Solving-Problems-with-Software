@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Part3
+comment0.text=\n\ Write\ a\ description\ of\ class\ Part3\ here.\n\n\ @author\ apcarrik\n\ @version\ 7/26/2023\n
+comment1.params=dna
+comment1.target=java.lang.String\ findGene(java.lang.String)
+comment1.text=\n\ Finds\ and\ returns\ the\ first\ single\ gene\ found\ in\ a\ snippet\ of\ DNA\ string\n\n\ @param\ \ dna\ \ a\ string\ represnting\ a\ snippet\ of\ DNA\n\ @return\ \ \ \ A\ string\ representing\ the\ first\ gene\ found.\ \n\ \ If\ none\ are\ found,\ returns\ empty\ string\n
+comment2.params=dna
+comment2.target=void\ printAllGenes(java.lang.String)
+comment2.text=\n\ Finds\ and\ prints\ all\ genes\ found\ in\ a\ snippet\ of\ DNA\ string\n\n\ @param\ \ dna\ \ a\ string\ represnting\ a\ snippet\ of\ DNA\n
+comment3.params=dna
+comment3.target=int\ countGenes(java.lang.String)
+comment3.text=\n\ Finds\ the\ number\ of\ genes\ found\ in\ a\ snippet\ of\ DNA\ string\n\n\ @param\ \ dna\ \ a\ string\ represnting\ a\ snippet\ of\ DNA\n\ @return\ the\ number\ of\ genes\ in\ the\ DNA\ snippet\n
+comment4.params=
+comment4.target=void\ testFindGene()
+comment5.params=
+comment5.target=void\ testPrintAllGenes()
+comment6.params=
+comment6.target=void\ testCountGenes()
+comment7.params=args
+comment7.target=void\ main(java.lang.String[])
+numComments=8
