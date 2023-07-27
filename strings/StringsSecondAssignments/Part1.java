@@ -29,7 +29,7 @@ public class Part1
             // System.out.println("i="+i+" , substr=" + dna.substring(i,i+3) + " , start=" + start);
             if ((dna.substring(i,i+3).equals("TAA")) 
                 || (dna.substring(i,i+3).equals("TAG")) 
-                || (dna.substring(i,i+3).equals("ATG")) ) {
+                || (dna.substring(i,i+3).equals("TGA")) ) {
                 // System.out.println("found: substring=" + dna.substring(i,i+3));
                 return dna.substring(start,i+3);
             }            
