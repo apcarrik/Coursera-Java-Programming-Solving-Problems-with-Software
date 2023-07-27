@@ -75,6 +75,44 @@ public class Part1
         return (float) (Cs+Gs)/dna.length();
     }
     
+    /**
+     * Processes all genes provided by StorageResource to determine information about them.
+     *
+     * @param  sr   StorageResource containing strings representing genes
+     */    
+    public void processGenes(StorageResource sr) {
+        // print all genes longer than 9 characters
+        String longestGene = "";
+        int numLongGenes = 0;
+        System.out.println("Genes longer than 9 charcters:");
+        for (String s : sr.data()) {
+            if (s.length() > 9) {
+                numLongGenes++;
+                System.out.println(s);
+            }
+            if (s.length() > longestGene.length()){
+                longestGene = s;
+            }
+        }
+        // print the number of genes that are longer than 9 characters
+        System.out.println("Number of genes longer than 9 characters: " + numLongGenes);
+        
+        // print genes with cgRatio > 0.35
+        int numHighCGRatio = 0;        
+        System.out.println("Genes with cgRatio > 0.35:");
+        for (String s : sr.data()) {
+            if (cgRatio(s) > 0.35) {
+                numHighCGRatio++;
+                System.out.println(s);
+            }
+        }
+        // print number of genes with cgRation > 0.35
+        System.out.println("Number of genes with cgRatio > 0.35: " + numHighCGRatio);
+        
+        // print length of longest gene
+        System.out.println("Longest Gene: " + longestGene);
+    }
+    
     public void testFindGene() {
         System.out.println("\n - Testing findGene() - ");
         
@@ -194,11 +232,33 @@ public class Part1
         
     }
     
+    public void testProcessGenes() {
+        System.out.println("\n - Testing processGenes() - ");
+        int i = 0;
+        String test = "CCATGCATGCCTAACAATGCCCTAGAATGATGCC";
+        StorageResource sr = getAllGenes(test);        
+        System.out.println("\ntest" + i + " = "+ test);
+        System.out.println("result = \"");
+        processGenes(sr);
+        System.out.println("\"");        
+        System.out.println("expected = \"");
+        System.out.println("Genes longer than 9 charcters:");
+        System.out.println("ATGCATGCCTAA");
+        System.out.println("Number of genes longer than 9 characters: 1");
+        System.out.println("Genes with cgRatio > 0.35:");
+        System.out.println("ATGCATGCCTAA\nATGCCCTAG");
+        System.out.println("Number of genes with cgRatio > 0.35: 2");
+        System.out.println("Longest Gene: ATGCATGCCTAA" );
+        System.out.println("\""); 
+        
+    }
+    
     public static void main (String[] args) {
         Part1 p1 = new Part1();
         System.out.println("\n\n======\n");
         p1.testFindGene();
         p1.testGetAllGenes();
         p1.testCgRatio();
+        p1.testProcessGenes();
     }
 }
