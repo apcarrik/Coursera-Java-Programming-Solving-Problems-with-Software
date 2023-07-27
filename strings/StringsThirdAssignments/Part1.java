@@ -41,9 +41,10 @@ public class Part1
     }
     
     /**
-     * Finds and prints all genes found in a snippet of DNA string
+     * Finds and returns all genes found in a snippet of DNA string as a StorageResource
      *
      * @param  dna  a string represnting a snippet of DNA
+     * @return storage resource containing all gene strings
      */    
     public StorageResource getAllGenes(String dna) {
         StorageResource sr = new StorageResource();
@@ -60,6 +61,20 @@ public class Part1
         return sr;
         
     }
+    
+    /**
+     * Calculates the cgRatio for a DNA snippet
+     *
+     * @param  dna  a string represnting a snippet of DNA
+     * @return float representing the cgRatio of the snippet
+     */    
+    public double cgRatio(String dna) {
+        dna = dna.toUpperCase();
+        int Cs = dna.length() - dna.replace("C", "").length();
+        int Gs = dna.length() - dna.replace("G", "").length();
+        return (float) (Cs+Gs)/dna.length();
+    }
+    
     public void testFindGene() {
         System.out.println("\n - Testing findGene() - ");
         
@@ -165,11 +180,25 @@ public class Part1
         
     }   
     
+    public void testCgRatio() {
+        System.out.println("\n - Testing cgRatio() - ");
+        
+        int i = 0;
+        String test = "ATGCCATAG";
+        double cgr = cgRatio(test);
+        double expected = 4.0/9.0;
+        System.out.println("\ntest" + i + " = "+ test);
+        System.out.println("result = " + cgr + ", expected = " + expected);
+        System.out.println("test passed? = " + (Math.abs(expected-cgr) <= 0.000001));
+        
+        
+    }
     
     public static void main (String[] args) {
         Part1 p1 = new Part1();
         System.out.println("\n\n======\n");
         p1.testFindGene();
         p1.testGetAllGenes();
+        p1.testCgRatio();
     }
 }
