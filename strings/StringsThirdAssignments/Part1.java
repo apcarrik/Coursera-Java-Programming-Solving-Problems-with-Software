@@ -7,6 +7,7 @@
  */
 
 import edu.duke.StorageResource;
+import edu.duke.FileResource;
 
 public class Part1
 {
@@ -111,6 +112,51 @@ public class Part1
         
         // print length of longest gene
         System.out.println("Longest Gene: " + longestGene);
+    }
+    
+    /**
+     * Processes all genes provided by StorageResource to determine information about them.
+     *
+     * @param  sr   StorageResource containing strings representing genes
+     */    
+    public void quizProcessGenes() {
+        System.out.println("\n === Quiz process genes ===");
+        // Get dna from file and get genes as StorageResource
+        FileResource fr = new FileResource("brca1line.fa");
+        System.out.println(fr);
+        String dna = fr.asString().toUpperCase();
+        StorageResource sr = getAllGenes(dna);
+        
+        // print all genes longer than 9 characters
+        String longestGene = "";
+        int numLongGenes = 0;
+        System.out.println("Genes longer than 60 charcters:");
+        for (String s : sr.data()) {
+            if (s.length() > 60) {
+                numLongGenes++;
+                System.out.println(s);
+            }
+            if (s.length() > longestGene.length()){
+                longestGene = s;
+            }
+        }
+        // print the number of genes that are longer than 9 characters
+        System.out.println("Number of genes longer than 9 characters: " + numLongGenes);
+        
+        // print genes with cgRatio > 0.35
+        int numHighCGRatio = 0;        
+        System.out.println("Genes with cgRatio > 0.35:");
+        for (String s : sr.data()) {
+            if (cgRatio(s) > 0.35) {
+                numHighCGRatio++;
+                System.out.println(s);
+            }
+        }
+        // print number of genes with cgRation > 0.35
+        System.out.println("Number of genes with cgRatio > 0.35: " + numHighCGRatio);
+        
+        // print length of longest gene
+        System.out.println("Longest Gene: " + longestGene);        
     }
     
     public void testFindGene() {
@@ -260,5 +306,6 @@ public class Part1
         p1.testGetAllGenes();
         p1.testCgRatio();
         p1.testProcessGenes();
+        p1.quizProcessGenes();
     }
 }
