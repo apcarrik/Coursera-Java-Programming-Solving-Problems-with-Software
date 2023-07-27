@@ -33,7 +33,7 @@ public class Part1
             // System.out.println("i="+i+" , substr=" + dna.substring(i,i+3) + " , start=" + start);
             if ((dna.substring(i,i+3).equals("TAA")) 
                 || (dna.substring(i,i+3).equals("TAG")) 
-                || (dna.substring(i,i+3).equals("ATG")) ) {
+                || (dna.substring(i,i+3).equals("TGA")) ) {
                 // System.out.println("found: substring=" + dna.substring(i,i+3));
                 return dna.substring(start,i+3);
             }            
@@ -122,13 +122,14 @@ public class Part1
     public void quizProcessGenes() {
         System.out.println("\n === Quiz process genes ===");
         // Get dna from file and get genes as StorageResource
-        FileResource fr = new FileResource("brca1line.fa");
+        FileResource fr = new FileResource("GRch38dnapart.fa"); // "brca1line.fa");
         System.out.println(fr);
         String dna = fr.asString().toUpperCase();
         StorageResource sr = getAllGenes(dna);
         
-        // print all genes longer than 9 characters
+        // print all genes longer than 60 characters
         String longestGene = "";
+        int numGenes = 0;
         int numLongGenes = 0;
         System.out.println("Genes longer than 60 charcters:");
         for (String s : sr.data()) {
@@ -139,9 +140,10 @@ public class Part1
             if (s.length() > longestGene.length()){
                 longestGene = s;
             }
+            numGenes++;
         }
-        // print the number of genes that are longer than 9 characters
-        System.out.println("Number of genes longer than 9 characters: " + numLongGenes);
+        // print the number of genes that are longer than 60 characters
+        System.out.println("Number of genes longer than 60 characters: " + numLongGenes);
         
         // print genes with cgRatio > 0.35
         int numHighCGRatio = 0;        
@@ -156,7 +158,9 @@ public class Part1
         System.out.println("Number of genes with cgRatio > 0.35: " + numHighCGRatio);
         
         // print length of longest gene
-        System.out.println("Longest Gene: " + longestGene);        
+        System.out.println("Longest Gene: " + longestGene); 
+        System.out.println("Longest Gene Length: " + longestGene.length());   
+        System.out.println("Total number of Genes: " + numGenes);        
     }
     
     public void testFindGene() {
