@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=ParsingWeatherData
+comment1.params=
+comment1.target=edu.duke.FileResource\ tester()
+comment1.text=\n\ Returns\ a\ FileResource\ from\ file\ opened\n\n\ @return\ \ \ \ FileResource\n
+comment2.params=fr
+comment2.target=org.apache.commons.csv.CSVRecord\ coldestHourInFile(edu.duke.FileResource)
+comment2.text=\n\ Returns\ CSVRecord\ with\ the\ coldest\ temperature\ in\ the\ file.\n\n\ @param\ \ \ fr\ \ \ \ \ \ FileResource\ of\ CSV\ data\n\ @return\ \ \ \ \ \ \ \ \ \ CSVRecord\ with\ the\ coldest\ temp\ in\ file.\n
+comment3.params=
+comment3.target=java.lang.String\ fileWithColdestTemperature()
+comment3.text=\n\ Returns\ a\ string\ that\ is\ the\ name\ of\ the\ file\ from\ selected\ files\ that\ has\ the\ coldest\ temperature\n\n\ @return\ \ \ \ \ \ \ \ \ \ String\ of\ filename\ with\ the\ coldest\ temp\ of\ all\ files.\n
+comment4.params=fr
+comment4.target=void\ testColdestHourInFile(edu.duke.FileResource)
+comment4.text=\n\ tests\ coldestHourInFile\ method.\n
+comment5.params=
+comment5.target=void\ testFileWithColdestTemperature()
+comment5.text=\n\ tests\ coldestHourInFile\ method.\n
+comment6.params=args
+comment6.target=void\ main(java.lang.String[])
+numComments=7

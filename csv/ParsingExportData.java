@@ -15,9 +15,9 @@ public class ParsingExportData
 {
 
     /**
-     * Returns a CSVParser from file opened with FileResource
+     * Returns a FileResource from file opened
      *
-     * @return    CSVParser
+     * @return    FileResource
      */
     public FileResource tester() {
         return new FileResource();

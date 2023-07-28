@@ -2,7 +2,7 @@
 comment0.target=ParsingExportData
 comment1.params=
 comment1.target=edu.duke.FileResource\ tester()
-comment1.text=\n\ Returns\ a\ CSVParser\ from\ file\ opened\ with\ FileResource\n\n\ @return\ \ \ \ CSVParser\n
+comment1.text=\n\ Returns\ a\ FileResource\ from\ file\ opened\n\n\ @return\ \ \ \ FileResource\n
 comment10.params=fr
 comment10.target=void\ quiz(edu.duke.FileResource)
 comment10.text=\n\ gets\ answers\ for\ quiz.\n
