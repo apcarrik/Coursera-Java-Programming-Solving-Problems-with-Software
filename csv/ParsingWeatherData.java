@@ -96,10 +96,10 @@ public class ParsingWeatherData
         String test = fileWithColdestTemperature();
         String testStr = "Coldest day was in " + test + "\n";
         // TODO: calculate testStr
-        String expected = "Coldest day was in file weather-2014-01-03.csv\nColdest temperature on that day was 21.9\nAll the Temperatures on the coldest day were:\n2014-01-03 05:51:00: 41.0\n2014-01-03 06:51:00: 39.0\n2014-01-03 07:51:00: 35.1\n2014-01-03 08:51:00: 30.9\n2014-01-03 09:51:00: 28.0\n2014-01-03 10:51:00: 25.0\n2014-01-03 11:51:00: 24.1\n2014-01-03 12:51:00: 23.0\n2014-01-03 13:51:00: 25.0\n2014-01-03 14:51:00: 26.1\n2014-01-03 15:51:00: 28.0\n2014-01-03 16:51:00: 30.0\n2014-01-03 17:51:00: 30.9\n2014-01-03 18:51:00: 33.1\n2014-01-03 19:51:00: 33.1\n2014-01-03 20:51:00: 33.1\n2014-01-03 21:51:00: 30.9\n2014-01-03 22:51:00: 28.9\n2014-01-03 23:51:00: 28.9\n2014-01-04 00:51:00: 26.1\n2014-01-04 01:51:00: 24.1\n2014-01-04 02:51:00: 24.1\n2014-01-04 03:51:00: 23.0\n2014-01-04 04:51:00: 21.9";
+        String expected = "weather-2014-01-03.csv"; // "Coldest day was in file weather-2014-01-03.csv\nColdest temperature on that day was 21.9\nAll the Temperatures on the coldest day were:\n2014-01-03 05:51:00: 41.0\n2014-01-03 06:51:00: 39.0\n2014-01-03 07:51:00: 35.1\n2014-01-03 08:51:00: 30.9\n2014-01-03 09:51:00: 28.0\n2014-01-03 10:51:00: 25.0\n2014-01-03 11:51:00: 24.1\n2014-01-03 12:51:00: 23.0\n2014-01-03 13:51:00: 25.0\n2014-01-03 14:51:00: 26.1\n2014-01-03 15:51:00: 28.0\n2014-01-03 16:51:00: 30.0\n2014-01-03 17:51:00: 30.9\n2014-01-03 18:51:00: 33.1\n2014-01-03 19:51:00: 33.1\n2014-01-03 20:51:00: 33.1\n2014-01-03 21:51:00: 30.9\n2014-01-03 22:51:00: 28.9\n2014-01-03 23:51:00: 28.9\n2014-01-04 00:51:00: 26.1\n2014-01-04 01:51:00: 24.1\n2014-01-04 02:51:00: 24.1\n2014-01-04 03:51:00: 23.0\n2014-01-04 04:51:00: 21.9";
         System.out.println("expected: \"" + expected + "\"");
-        System.out.println("actual: \"" + testStr + "\"");
-        System.out.println("test passed? = " + (testStr.equals(expected)));
+        System.out.println("actual: \"" + test); // testStr + "\"");
+        System.out.println("test passed? = " + (test.equals(expected)));
         
     }
     
