@@ -68,6 +68,57 @@ public class ParsingWeatherData
     }
     
     
+
+    /**
+     * Returns CSVRecord with the lowest humidity in the file.
+     *
+     * @param   fr      FileResource of CSV data
+     * @return          CSVRecord with the lowest humidity in file.
+     */
+    public CSVRecord lowestHumidityInFile(FileResource fr) {        
+        CSVParser parser = fr.getCSVParser();
+        CSVRecord driest = null;
+        double lowestHumidity = Double.POSITIVE_INFINITY;
+        for (CSVRecord r : parser) {
+            if (!(r.get("Humidity").equals("N/A"))) {
+                Double reading = Double.parseDouble(r.get("Humidity"));
+                if (reading < lowestHumidity) {
+                    lowestHumidity = reading;
+                    driest = r;
+                }
+            }
+        }
+        return driest;
+    }
+    
+    
+
+    /**
+     * Returns a string that is the name of the file from selected files that has the lowest humidity.
+     *
+     * @return          CSVRecord with the lowest humidity hour of all files.
+     */
+    public CSVRecord lowestHumidityInManyFiles() {          
+        DirectoryResource dr = new DirectoryResource();
+        CSVRecord driest = null;
+        double lowestHumidity = Double.POSITIVE_INFINITY;
+        for (File f: dr.selectedFiles()) {
+            FileResource fr = new FileResource(f);
+            CSVParser parser = fr.getCSVParser();
+            for (CSVRecord r : parser) {
+                if (!(r.get("Humidity").equals("N/A"))) {
+                    Double reading = Double.parseDouble(r.get("Humidity"));
+                    if (reading < lowestHumidity) {
+                        lowestHumidity = reading;
+                        driest = r;
+                    }
+                }
+            }            
+        }
+        return driest;
+    }
+    
+    
     /**
      * tests coldestHourInFile method.
      */    
@@ -105,14 +156,51 @@ public class ParsingWeatherData
     
     
     
+    /**
+     * tests lowestHumidityInManyFiles method.
+     */    
+    public void testLowestHumidityInFile(FileResource fr) {
+        System.out.println("\n Testing lowestHumidityInManyFiles()");  
+        System.out.println("testing with \"weather-2014-01-20.csv\"");
+        CSVRecord test = lowestHumidityInFile(fr);
+        String testStr = "Lowest Humidity was "+test.get("Humidity")+" at " + test.get("DateUTC");
+        String expected = "Lowest Humidity was 24 at 2014-01-20 19:51:00";
+        System.out.println("expected: \"" + expected + "\"");
+        System.out.println("actual: \"" + testStr + "\"");
+        System.out.println("test passed? = " + (testStr.equals(expected)));
+        
+    }
+    
+    /**
+     * tests lowestHumidityInFile method.
+     */    
+    public void testLowestHumidityInManyFiles() {
+        System.out.println("\n Testing lowestHumidityInFile()");
+        System.out.println("testing with files: [\"weather-2014-01-19.csv\",\n\"weather-2014-01-20.csv\"]");
+        CSVRecord test = lowestHumidityInManyFiles();
+        String testStr = "Lowest Humidity was "+test.get("Humidity")+" at " + test.get("DateUTC");
+        String expected = "Lowest Humidity was 24 at 2014-01-20 19:51:00";
+        System.out.println("expected: \"" + expected + "\"");
+        System.out.println("actual: \"" + testStr + "\"");
+        System.out.println("test passed? = " + (testStr.equals(expected)));
+        
+    }
+    
+    
     
     public static void main (String[] args) {
         System.out.println("\n\n==== main ====");
         ParsingWeatherData pwd = new ParsingWeatherData();
-        FileResource fr = pwd.tester();
         
-        pwd.testColdestHourInFile(fr);
-        pwd.testFileWithColdestTemperature();
+        //FileResource fr = pwd.tester();        
+        //pwd.testColdestHourInFile(fr);
+        
+        //pwd.testFileWithColdestTemperature();
+        
+        //fr = pwd.tester();
+        //pwd.testLowestHumidityInFile(fr);
+        
+        pwd.testLowestHumidityInManyFiles();
         
     
     }
