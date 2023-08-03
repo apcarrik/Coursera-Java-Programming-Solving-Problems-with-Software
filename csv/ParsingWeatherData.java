@@ -65,9 +65,7 @@ public class ParsingWeatherData
             }            
         }
         return coldestFilename;
-    }
-    
-    
+    }    
 
     /**
      * Returns CSVRecord with the lowest humidity in the file.
@@ -90,8 +88,6 @@ public class ParsingWeatherData
         }
         return driest;
     }
-    
-    
 
     /**
      * Returns a string that is the name of the file from selected files that has the lowest humidity.
@@ -117,7 +113,26 @@ public class ParsingWeatherData
         }
         return driest;
     }
-    
+
+    /**
+     * Returns double representing the average temperature of the file.
+     *
+     * @param   fr      FileResource of CSV data
+     * @return          double representing the average temperature
+     */
+    public double averageTemperatureInFile(FileResource fr) {    
+        CSVParser parser = fr.getCSVParser();
+        double avgTemp = 0.0;
+        int numReadings = 0;
+        for (CSVRecord r : parser) {
+            Double temp = Double.parseDouble(r.get("TemperatureF"));
+            if (temp > -9999.0) {
+                avgTemp += temp;
+                numReadings++;
+            }
+        }
+        return avgTemp/numReadings;
+    }
     
     /**
      * tests coldestHourInFile method.
@@ -137,7 +152,6 @@ public class ParsingWeatherData
         
     }
     
-    
     /**
      * tests coldestHourInFile method.
      */    
@@ -153,8 +167,6 @@ public class ParsingWeatherData
         System.out.println("test passed? = " + (test.equals(expected)));
         
     }
-    
-    
     
     /**
      * tests lowestHumidityInManyFiles method.
@@ -185,6 +197,21 @@ public class ParsingWeatherData
         System.out.println("test passed? = " + (testStr.equals(expected)));
         
     }
+
+    /**
+     * tests coldestHourInFile method.
+     */    
+    public void testAverageTemperatureInFile(FileResource fr) {
+        System.out.println("\n Testing averageTemperatureInFile()");  
+        System.out.println("testing with \"weather-2014-01-20.csv\"");
+        double test = averageTemperatureInFile(fr);
+        String testStr = "Average temperature in file is " + test;
+        String expected = "Average temperature in file is 44.93333333333334";
+        System.out.println("expected: \"" + expected + "\"");
+        System.out.println("actual: \"" + testStr + "\"");
+        System.out.println("test passed? = " + (testStr.equals(expected)));
+        
+    }
     
     
     
@@ -200,7 +227,10 @@ public class ParsingWeatherData
         //fr = pwd.tester();
         //pwd.testLowestHumidityInFile(fr);
         
-        pwd.testLowestHumidityInManyFiles();
+        //pwd.testLowestHumidityInManyFiles();
+        
+        FileResource fr = pwd.tester();   
+        pwd.testAverageTemperatureInFile(fr);
         
     
     }
