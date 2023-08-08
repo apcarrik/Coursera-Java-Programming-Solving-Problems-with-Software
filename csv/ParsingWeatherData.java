@@ -133,6 +133,31 @@ public class ParsingWeatherData
         }
         return avgTemp/numReadings;
     }
+
+    /**
+     * Returns double representing the average temperature of readings with humidity greater than value in file.
+     *
+     * @param   fr      FileResource of CSV data
+     * @param   value   Int representing humidity value to compare against
+     * @return          double representing the average temperature
+     */
+    public double averageTemperatureWithHighHumidityInFile(FileResource fr, int value) {    
+        CSVParser parser = fr.getCSVParser();
+        double avgTemp = 0.0;
+        int numReadings = 0;
+        for (CSVRecord r : parser) {
+            Double temp = Double.parseDouble(r.get("TemperatureF"));
+            int humidity = Integer.parseInt(r.get("Humidity"));
+            if (temp > -9999.0 && humidity > value) {
+                avgTemp += temp;
+                numReadings++;
+            }
+        }
+        if (numReadings > 0) {
+            return avgTemp/numReadings;
+        }
+        return 0.0;
+    }
     
     /**
      * tests coldestHourInFile method.
@@ -212,6 +237,42 @@ public class ParsingWeatherData
         System.out.println("test passed? = " + (testStr.equals(expected)));
         
     }
+
+    /**
+     * test 1 of coldestHourInFile method.
+     */    
+    public void testAverageTemperatureWithHighHumidityInFile1(FileResource fr) {
+        System.out.println("\n Testing averageTemperatureWithHighHumidityInFile()");  
+        System.out.println("testing with \"weather-2014-01-20.csv\" and value=80");
+        double test = averageTemperatureWithHighHumidityInFile(fr, 80);
+        String testStr = "Average Temp when high Humidity is " + test;
+        if (test == 0.0) {
+            testStr = "No temperatures with that humidity";
+        }
+        String expected = "No temperatures with that humidity";
+        System.out.println("expected: \"" + expected + "\"");
+        System.out.println("actual: \"" + testStr + "\"");
+        System.out.println("test passed? = " + (testStr.equals(expected)));        
+    }
+
+    /**
+     * test 2 of coldestHourInFile method.
+     */    
+    public void testAverageTemperatureWithHighHumidityInFile2(FileResource fr) {
+        System.out.println("\n Testing averageTemperatureWithHighHumidityInFile()");  
+         
+        System.out.println("testing with \"weather-2014-03-20.csv\" and value=80");
+        double test = averageTemperatureWithHighHumidityInFile(fr, 80);
+        String testStr = "Average Temp when high Humidity is " + test;
+        if (test == 0.0) {
+            testStr = "No temperatures with that humidity";
+        }
+        String expected = "Average Temp when high Humidity is 41.78666666666667";
+        System.out.println("expected: \"" + expected + "\"");
+        System.out.println("actual: \"" + testStr + "\"");
+        System.out.println("test passed? = " + (testStr.equals(expected)));
+        
+    }
     
     
     
@@ -219,18 +280,22 @@ public class ParsingWeatherData
         System.out.println("\n\n==== main ====");
         ParsingWeatherData pwd = new ParsingWeatherData();
         
-        //FileResource fr = pwd.tester();        
+        FileResource fr = pwd.tester();
+        
         //pwd.testColdestHourInFile(fr);
         
         //pwd.testFileWithColdestTemperature();
         
-        //fr = pwd.tester();
         //pwd.testLowestHumidityInFile(fr);
         
         //pwd.testLowestHumidityInManyFiles();
         
-        FileResource fr = pwd.tester();   
-        pwd.testAverageTemperatureInFile(fr);
+        //pwd.testAverageTemperatureInFile(fr);
+        
+        pwd.testAverageTemperatureWithHighHumidityInFile1(fr);
+        
+        fr = pwd.tester();
+        pwd.testAverageTemperatureWithHighHumidityInFile2(fr);
         
     
     }
