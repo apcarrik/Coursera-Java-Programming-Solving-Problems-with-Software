@@ -281,22 +281,45 @@ public class ParsingWeatherData
         ParsingWeatherData pwd = new ParsingWeatherData();
         
         FileResource fr = pwd.tester();
-        
         //pwd.testColdestHourInFile(fr);
         
         //pwd.testFileWithColdestTemperature();
         
+        //fr = pwd.tester();
         //pwd.testLowestHumidityInFile(fr);
         
         //pwd.testLowestHumidityInManyFiles();
-        
+           
+        //fr = pwd.tester();
         //pwd.testAverageTemperatureInFile(fr);
         
-        pwd.testAverageTemperatureWithHighHumidityInFile1(fr);
+        //fr = pwd.tester();
+        //pwd.testAverageTemperatureWithHighHumidityInFile1(fr);
         
+        //fr = pwd.tester();
+        //pwd.testAverageTemperatureWithHighHumidityInFile2(fr);
+        
+        // Quiz
+        System.out.println("\n3)");
+        pwd.testColdestHourInFile(fr);
+        
+        System.out.println("\n4)");
+        pwd.testFileWithColdestTemperature();
+        
+        System.out.println("\n5)");
         fr = pwd.tester();
-        pwd.testAverageTemperatureWithHighHumidityInFile2(fr);
+        pwd.testLowestHumidityInFile(fr);
         
+        System.out.println("\n6) & 7)");
+        pwd.testLowestHumidityInManyFiles();
+        
+        System.out.println("\n8)");
+        fr = pwd.tester();
+        pwd.testAverageTemperatureInFile(fr);
+        
+        System.out.println("\n9)");
+        fr = pwd.tester();
+        pwd.testAverageTemperatureWithHighHumidityInFile1(fr);   
     
     }
 }
