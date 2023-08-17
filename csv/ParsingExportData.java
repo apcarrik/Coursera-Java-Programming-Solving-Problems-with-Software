@@ -205,16 +205,36 @@ public class ParsingExportData
         
     }
     
+    
+    /**
+     * gets answers for the second quiz.
+     */
+    public void quiz2(FileResource fr) {
+        System.out.println("\n Running program for second quiz answers"); 
+        
+        System.out.println("\n1) Countries that export both cotton and flowers:");
+        listExportersTwoProducts(fr, "cotton", "flowers");
+        
+        System.out.println("\n2) Number of countries that export cocoa = " + numberOfExporters(fr, "cocoa"));
+
+        
+        System.out.println("\n3) Countries with GDP >= 1 trillion dollars:");
+        bigExporters(fr, "$999,999,999,999");
+        
+    }
+    
     public static void main (String[] args) {
         System.out.println("==== main ====");
         ParsingExportData ped = new ParsingExportData();
         FileResource fr = ped.tester();
         
-        ped.testCountryInfo(fr);
-        ped.testListExportersTwoProducts(fr);
-        ped.testNumberOfExporters(fr);
-        ped.testBigExporters(fr);
-        ped.quiz(fr);
+        //ped.testCountryInfo(fr);
+        //ped.testListExportersTwoProducts(fr);
+        //ped.testNumberOfExporters(fr);
+        //ped.testBigExporters(fr);
+        //ped.quiz(fr);
+        
+        ped.quiz2(fr);
     }
 
 }

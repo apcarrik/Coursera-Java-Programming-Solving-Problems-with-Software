@@ -178,14 +178,13 @@ public class ParsingWeatherData
     }
     
     /**
-     * tests coldestHourInFile method.
+     * tests fileWithColdestTemperature method.
      */    
     public void testFileWithColdestTemperature() {
         System.out.println("\n Testing fileWithColdestTemperature()");
         System.out.println("testing with files: [\"weather-2013-01-01.csv\",\n\"weather-2013-01-02.csv\",\n\"weather-2013-01-03.csv\"]");
         String test = fileWithColdestTemperature();
         String testStr = "Coldest day was in " + test + "\n";
-        // TODO: calculate testStr
         String expected = "weather-2014-01-03.csv"; // "Coldest day was in file weather-2014-01-03.csv\nColdest temperature on that day was 21.9\nAll the Temperatures on the coldest day were:\n2014-01-03 05:51:00: 41.0\n2014-01-03 06:51:00: 39.0\n2014-01-03 07:51:00: 35.1\n2014-01-03 08:51:00: 30.9\n2014-01-03 09:51:00: 28.0\n2014-01-03 10:51:00: 25.0\n2014-01-03 11:51:00: 24.1\n2014-01-03 12:51:00: 23.0\n2014-01-03 13:51:00: 25.0\n2014-01-03 14:51:00: 26.1\n2014-01-03 15:51:00: 28.0\n2014-01-03 16:51:00: 30.0\n2014-01-03 17:51:00: 30.9\n2014-01-03 18:51:00: 33.1\n2014-01-03 19:51:00: 33.1\n2014-01-03 20:51:00: 33.1\n2014-01-03 21:51:00: 30.9\n2014-01-03 22:51:00: 28.9\n2014-01-03 23:51:00: 28.9\n2014-01-04 00:51:00: 26.1\n2014-01-04 01:51:00: 24.1\n2014-01-04 02:51:00: 24.1\n2014-01-04 03:51:00: 23.0\n2014-01-04 04:51:00: 21.9";
         System.out.println("expected: \"" + expected + "\"");
         System.out.println("actual: \"" + test); // testStr + "\"");
@@ -224,7 +223,7 @@ public class ParsingWeatherData
     }
 
     /**
-     * tests coldestHourInFile method.
+     * tests averageTemperatureWithHighHumidityInFile method.
      */    
     public void testAverageTemperatureInFile(FileResource fr) {
         System.out.println("\n Testing averageTemperatureInFile()");  
@@ -239,7 +238,7 @@ public class ParsingWeatherData
     }
 
     /**
-     * test 1 of coldestHourInFile method.
+     * test 1 of averageTemperatureWithHighHumidityInFile method.
      */    
     public void testAverageTemperatureWithHighHumidityInFile1(FileResource fr) {
         System.out.println("\n Testing averageTemperatureWithHighHumidityInFile()");  
@@ -299,12 +298,31 @@ public class ParsingWeatherData
         //fr = pwd.tester();
         //pwd.testAverageTemperatureWithHighHumidityInFile2(fr);
         
-        // Quiz
-        System.out.println("\n3)");
-        pwd.testColdestHourInFile(fr);
+        //// Quiz
+        //System.out.println("\n3)");
+        //pwd.testColdestHourInFile(fr);
         
+        //System.out.println("\n4)");
+        //pwd.testFileWithColdestTemperature();
+        
+        //System.out.println("\n5)");
+        // fr = pwd.tester();
+        // pwd.testLowestHumidityInFile(fr);
+        
+        // System.out.println("\n6) & 7)");
+        // pwd.testLowestHumidityInManyFiles();
+        
+        // System.out.println("\n8)");
+        // fr = pwd.tester();
+        // pwd.testAverageTemperatureInFile(fr);
+        
+        // System.out.println("\n9)");
+        // fr = pwd.tester();
+        // pwd.testAverageTemperatureWithHighHumidityInFile1(fr);
+        
+        // Quiz2
         System.out.println("\n4)");
-        pwd.testFileWithColdestTemperature();
+        pwd.testLowestHumidityInFile(fr);
         
         System.out.println("\n5)");
         fr = pwd.tester();
@@ -319,7 +337,10 @@ public class ParsingWeatherData
         
         System.out.println("\n9)");
         fr = pwd.tester();
-        pwd.testAverageTemperatureWithHighHumidityInFile1(fr);   
+        pwd.testAverageTemperatureWithHighHumidityInFile1(fr);
+        
+        System.out.println("\n10) & 11)");
+        pwd.testFileWithColdestTemperature();
     
     }
 }
