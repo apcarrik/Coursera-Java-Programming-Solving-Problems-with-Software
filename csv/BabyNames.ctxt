@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=BabyNames
+comment1.params=fr
+comment1.target=int\ totalBirths(edu.duke.FileResource)
+comment1.text=\n\ Prints\ the\ number\ of\ total\ births\ for\ a\ given\ year\ of\ baby\ births.\n\n\ @param\ \ fr\ \ \ FileResource\ representing\ file\ of\ births\n\ @return\ \ \ \ \ \ int\ representing\ the\ total\ number\ of\ births\ in\ the\ file\n
+comment2.params=
+comment2.target=void\ testTotalBirths()
+comment2.text=\n\ Tests\ the\ method\ totalBirths.\n
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4
