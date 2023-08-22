@@ -378,16 +378,80 @@ public class BabyNames
         System.out.println("test passed? = " + (test == expected));   
         
     }
+
+    /**
+     * Computes answers for quiz questions.
+     */    
+    public void quiz() {
+        System.out.println("\n Quiz answers");
+        
+        System.out.println("\n 1)");
+        FileResource fr = new FileResource("csv/us_babynames_by_year/yob1900.csv");
+        System.out.println("Answer: " + totalBirths(fr, 1) );    
+        
+        System.out.println("\n 2)");
+        fr = new FileResource("csv/us_babynames_by_year/yob1905.csv");
+        System.out.println("Answer: " + totalBirths(fr, 2) );   
+        
+        System.out.println("\n 3)");
+        fr = new FileResource("csv/us_babynames_by_year/yob1960.csv");
+        System.out.println("Answer: " + getRank(fr, "Emily", "F"));
+        
+        System.out.println("\n 4)");
+        fr = new FileResource("csv/us_babynames_by_year/yob1971.csv");
+        System.out.println("Answer: " + getRank(fr, "Frank", "M"));
+        
+        System.out.println("\n 5)");
+        fr = new FileResource("csv/us_babynames_by_year/yob1980.csv");
+        System.out.println("Answer: " + getName(fr, 350, "F"));
+        
+        System.out.println("\n 6)");
+        fr = new FileResource("csv/us_babynames_by_year/yob1982.csv");
+        System.out.println("Answer: " + getName(fr, 450, "M"));
+        
+        System.out.println("\n 7)");
+        fr = new FileResource("csv/us_babynames_by_year/yob1972.csv");
+        FileResource fr2 = new FileResource("csv/us_babynames_by_year/yob2014.csv");
+        System.out.println("Answer: " + whatIsNameInYear(fr, fr2, "Susan", "F"));
+        
+        System.out.println("\n 8)");
+        fr = new FileResource("csv/us_babynames_by_year/yob1974.csv");
+        fr2 = new FileResource("csv/us_babynames_by_year/yob2014.csv");
+        System.out.println("Answer: " + whatIsNameInYear(fr, fr2, "Owen", "M"));
+        
+        System.out.println("\n 9)");
+        DirectoryResource dr = new DirectoryResource();
+        Iterable<File> itr = dr.selectedFiles();        
+        System.out.println("Answer: " + yearOfHighestRank(itr, "Genevieve", "F"));
+        
+        System.out.println("\n 10)");       
+        System.out.println("Answer: " + yearOfHighestRank(itr, "Mich", "M"));
+        
+        System.out.println("\n 11)");       
+        System.out.println("Answer: " + getAverageRank(itr, "Susan", "F"));
+        
+        System.out.println("\n 12)");       
+        System.out.println("Answer: " + getAverageRank(itr, "Robert", "M"));
+        
+        System.out.println("\n 13)");       
+        dr = new DirectoryResource();
+        itr = dr.selectedFiles();  
+        System.out.println("Answer: " + getTotalBirthsRankedHigher(itr, 1990, "Emily", "F"));
+        
+        System.out.println("\n 14)");   
+        System.out.println("Answer: " + getTotalBirthsRankedHigher(itr, 1990, "Drew", "M"));
+    }
     
     public static void main (String[] args) {
         System.out.println("\n\n==== main ====");
         BabyNames bn = new BabyNames();
-        bn.testTotalBirths();
-        bn.testGetRank();
-        bn.testGetName();
-        bn.testWhatIsNameInYear();
-        bn.testYearOfHighestRank();
-        bn.testGetAverageRank();
-        bn.testGetTotalBirthsRankedHigher();
+        // bn.testTotalBirths();
+        // bn.testGetRank();
+        // bn.testGetName();
+        // bn.testWhatIsNameInYear();
+        // bn.testYearOfHighestRank();
+        // bn.testGetAverageRank();
+        // bn.testGetTotalBirthsRankedHigher();
+        bn.quiz();
     }
 }
